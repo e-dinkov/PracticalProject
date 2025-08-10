@@ -1,0 +1,31 @@
+<header class="site-header">
+  <div class="container">
+    <div class="logo">
+      <i class="fas fa-basketball-ball"></i>
+      <span>Basketball Scout</span>
+    </div>
+
+    <nav class="nav-links">
+      <a routerLink="/">Home</a>
+      <a routerLink="/players">Players</a>
+
+      <!-- If NOT logged in -->
+      @if(!isLoggedIn()){
+        <a routerLink="/login" class="btn btn-secondary">Login</a>
+        <a routerLink="/register" class="btn btn-primary">Register</a>
+      }
+        
+      
+
+      <!-- If logged in -->
+       @if(isLoggedIn()){
+      <a routerLink="/profile" class="btn btn-secondary">My Profile</a>
+        <button (click)="logout()" class="btn btn-danger">Logout</button>
+       }
+      
+      
+      
+    </nav>
+  </div>
+</header>
+

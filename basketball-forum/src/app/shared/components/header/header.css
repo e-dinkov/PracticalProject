@@ -1,0 +1,75 @@
+.site-header {
+  background-color: #212121;
+  color: white;
+  padding: 15px 0;
+}
+
+.site-header .container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-links a {
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #f57c00;
+}
+
+/* Button styles */
+.btn {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.btn-primary {
+  background-color: #f57c00;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #e76e00;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: white;
+  color: #212121;
+}
+
+.btn-danger {
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #b71c1c;
+}
