@@ -1,1 +1,62 @@
-<p>register works!</p>
+<div class="register-container">
+  <div class="register-card">
+    <h2>Create Account</h2>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+      <!-- Username -->
+      <div class="form-group" [class.error]="isUsernameValid">
+        <label for="username">Username</label>
+        <input id="username" type="text" formControlName="username" placeholder="Enter username" />
+        @if (isUsernameValid) {
+          <small>{{ usernameErrorMessage }}</small>
+        }
+      </div>
+
+      <!-- Email -->
+      <div class="form-group" [class.error]="isEmailValid">
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email" placeholder="Enter email" />
+        @if (isEmailValid) {
+          <small>{{ emailErrorMessage }}</small>
+        }
+      </div>
+
+      <!-- Passwords Group -->
+      <div formGroupName="passwords" class="passwords-group">
+
+        <!-- Password -->
+        <div class="form-group" [class.error]="isPasswordsValid">
+          <label for="password">Password</label>
+          <input id="password" type="password" formControlName="password" placeholder="Enter password" />
+          @if (isPasswordsValid) {
+            <small>{{ passwordErrorMessage }}</small>
+          }
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group" [class.error]="isPasswordsValid">
+          <label for="rePassword">Confirm Password</label>
+          <input id="rePassword" type="password" formControlName="rePassword" placeholder="Confirm password" />
+        </div>
+
+      </div>
+
+      <!-- Phone -->
+      <div class="form-group" [class.error]="phone?.invalid && (phone?.dirty || phone?.touched)">
+        <label for="phone">Phone</label>
+        <input id="phone" type="number"  formControlName="phone" placeholder="Enter phone number" />
+        
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="btn-primary" [disabled]="registerForm.invalid">Register</button>
+
+      <!-- Links -->
+      <div class="links">
+        <a routerLink="/login">Already have an account? Login</a>
+      </div>
+    </form>
+  </div>
+</div>
+

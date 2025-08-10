@@ -1,0 +1,50 @@
+/*
+ * This CSS styles the error notification with a clear,
+ * user-friendly design. It uses a soft red color scheme,
+ * rounded corners, and a subtle shadow to make it stand out.
+ */
+
+.error-notification {
+  /*
+   * Box Model and Layout:
+   * Sets padding and margin for spacing.
+   * `display: flex` and `align-items: center` are used
+   * to vertically center content, which is useful if you add an icon.
+   */
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+
+  /*
+   * Color and Borders:
+   * Uses a light red background with a darker red text and border,
+   * which is a standard color palette for errors.
+   * `border-radius` gives it a modern, rounded look.
+   */
+  background-color: #fcebeb; /* Light red background */
+  color: #721c24;            /* Dark red text for contrast */
+  border: 1px solid #f5c6cb; /* Slightly darker border */
+  border-radius: 0.5rem;      /* Rounded corners */
+
+  /*
+   * Typography:
+   * Sets a clear, readable font.
+   */
+  font-family: sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+  word-break: break-word;
+
+  /*
+   * Visuals:
+   * A subtle box shadow lifts the notification off the page.
+   */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.error-notification p {
+  /* Resets the default margin on the paragraph tag */
+  margin: 0;
+}
