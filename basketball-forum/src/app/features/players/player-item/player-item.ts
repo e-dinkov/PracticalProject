@@ -15,6 +15,7 @@ export class PlayerItem implements OnInit {
 
   private authService = inject(AuthService);
   private playerService = inject(PlayerService);
+  readonly isLoggedIn = this.authService.isLoggedIn;
 
   currentUserId = signal<string | null>(null);
   likes = signal<string[]>([]);
@@ -31,7 +32,7 @@ export class PlayerItem implements OnInit {
 
   toggleLike() {
     console.log(this.player);
-    
+
     const userId = this.currentUserId();
     if (!userId) return;
 
@@ -43,8 +44,8 @@ export class PlayerItem implements OnInit {
     }
 
     this.likes.set(updatedLikes);
-     console.log(this.player._id);
-     
+    console.log(this.player._id);
+
     this.playerService.likePlayer(this.player._id).subscribe({
       next: (updatedPlayer) => {
         this.player = updatedPlayer;
@@ -52,6 +53,6 @@ export class PlayerItem implements OnInit {
       error: (err) => {
         console.error('Error liking player', err);
       },
-     });
+    });
   }
 }

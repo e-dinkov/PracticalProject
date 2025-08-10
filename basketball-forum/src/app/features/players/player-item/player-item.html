@@ -16,7 +16,8 @@
 
   <div class="player-actions">
     <a [routerLink]="['/players', player._id]" class="btn view-btn">View Details</a>
-@if(!hasLiked()) {
+    @if(isLoggedIn()){
+      @if(!hasLiked()) {
       <button
       class="btn like-btn"
       (click)="toggleLike()"
@@ -36,6 +37,8 @@
       ❤️Like
     </button>
  }
+    }
+
 
     <span class="likes-count">{{ likes().length }} Likes</span>
   </div>
