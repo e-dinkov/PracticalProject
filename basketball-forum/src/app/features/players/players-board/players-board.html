@@ -1,0 +1,18 @@
+<section class="players-board">
+  <h2>Players Board</h2>
+
+  @if (players$ | async; as players) {
+    @if (players.length > 0) {
+      <div class="players-grid">
+        @for (player of players; track player._id) {
+          <app-player-item [player]="player"></app-player-item>
+        }
+      </div>
+    } @else {
+      <p class="empty-message">No players available.</p>
+    }
+  } @else {
+    <p class="loading">Loading players...</p>
+  }
+</section>
+

@@ -1,0 +1,85 @@
+.player-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.player-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.player-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.player-header h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.team {
+  background: #4CAF50;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.player-info {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.player-info p {
+  margin: 0.2rem 0;
+}
+
+.description {
+  font-style: italic;
+  color: #777;
+}
+
+.player-actions {
+  margin-top: auto;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.2s ease;
+}
+
+.view-btn {
+  background: #2196F3;
+  color: white;
+}
+
+.view-btn:hover {
+  background: #1976D2;
+}
+.player-photo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.player-photo img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+

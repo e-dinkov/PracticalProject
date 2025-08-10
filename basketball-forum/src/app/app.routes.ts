@@ -22,5 +22,13 @@ export const routes: Routes = [
         path: 'profile',
         loadComponent: () => import('./features/profile/profile').then((c) => c.Profile)
     },
+    {
+        path: 'create-player',
+        loadComponent: () => import('./features/players/new-player/new-player').then((c) => c.NewPlayer)
+    },
+    {
+        path: 'players',
+        loadComponent: () => import('./features/players/players-board/players-board').then((c) => c.PlayersBoard)
+    },
 
 ];

@@ -1,0 +1,79 @@
+<div class="form-container">
+  <h2>Create New Player</h2>
+
+  <form [formGroup]="playerForm" (ngSubmit)="onSubmit()">
+
+    <!-- Player Name -->
+    <div class="form-group">
+      <label for="playerName">Name</label>
+      <input id="playerName" type="text" formControlName="playerName" placeholder="Enter player name" />
+      @if (f.playerName.touched && f.playerName.invalid) {
+        <small class="error">
+          @if (f.playerName.errors?.['required']) { Name is required. }
+          @if (f.playerName.errors?.['minlength']) { Name must be at least 2 characters. }
+        </small>
+      }
+    </div>
+    <!-- Player Photo -->
+    <div class="form-group">
+      <label for="playerPhoto">Photo</label>
+      <input id="playerPhoto" type="text" formControlName="playerPhoto" placeholder="Enter player photo" />
+      @if (f.playerPhoto.touched && f.playerPhoto.invalid) {
+        <small class="error">
+          @if (f.playerPhoto.errors?.['required']) { Photo is required. }
+          @if (f.playerPhoto.errors?.['pattern']) { Photo must be a valid URL. }
+        </small>
+      }
+    </div>
+    <!-- Player Team -->
+    <div class="form-group">
+      <label for="playerTeam">Team</label>
+      <input id="playerTeam" type="text" formControlName="playerTeam" placeholder="Enter team" />
+      @if (f.playerTeam.touched && f.playerTeam.invalid) {
+        <small class="error">Team is required.</small>
+      }
+    </div>
+
+    <!-- Player Height -->
+    <div class="form-group">
+      <label for="playerHeight">Height (cm)</label>
+      <input id="playerHeight" type="text" formControlName="playerHeight" placeholder="e.g. 198" />
+      @if (f.playerHeight.touched && f.playerHeight.invalid) {
+        <small class="error">
+          @if (f.playerHeight.errors?.['required']) { Height is required. }
+          @if (f.playerHeight.errors?.['pattern']) { Height must be a number. }
+        </small>
+      }
+    </div>
+
+    <!-- Player Weight -->
+    <div class="form-group">
+      <label for="playerWeight">Weight (kg)</label>
+      <input id="playerWeight" type="text" formControlName="playerWeight" placeholder="e.g. 90" />
+      @if (f.playerWeight.touched && f.playerWeight.invalid) {
+        <small class="error">
+          @if (f.playerWeight.errors?.['required']) { Weight is required. }
+          @if (f.playerWeight.errors?.['pattern']) { Weight must be a number. }
+        </small>
+      }
+    </div>
+
+    <!-- Player Description -->
+    <div class="form-group">
+      <label for="playerDescription">Description</label>
+      <textarea id="playerDescription" formControlName="playerDescription" placeholder="Describe the player..."></textarea>
+      @if (f.playerDescription.touched && f.playerDescription.invalid) {
+        <small class="error">
+          @if (f.playerDescription.errors?.['required']) { Description is required. }
+          @if (f.playerDescription.errors?.['minlength']) { Must be at least 10 characters. }
+        </small>
+      }
+    </div>
+
+    <div class="button-group">
+      <button type="submit" [disabled]="playerForm.invalid">Create</button>
+      <button type="button" (click)="onCancel()" class="cancel">Cancel</button>
+    </div>
+
+  </form>
+</div>

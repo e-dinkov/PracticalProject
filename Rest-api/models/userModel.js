@@ -43,7 +43,11 @@ const userSchema = new mongoose.Schema({
     posts: [{
         type: ObjectId,
         ref: "Post"
-    }]
+    }],
+    players: [{
+        type: ObjectId,
+        ref: "Player"
+    }],
 }, { timestamps: { createdAt: 'created_at' } });
 
 userSchema.methods = {
