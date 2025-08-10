@@ -26,6 +26,10 @@ const playerSchema = new mongoose.Schema({
         type: ObjectId,
         ref: "User"
     },
+    likes: [{
+        type: ObjectId,
+        ref: "User"
+    }]
 }, { timestamps: { createdAt: 'created_at' } });
 
 module.exports = mongoose.model('Player', playerSchema);

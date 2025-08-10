@@ -65,6 +65,21 @@ p {
   box-shadow: 0 5px 15px rgba(245,124,0,0.6);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
+.btn-primary2 {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  background-color: aqua;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 5px 15px aqua;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
 
 .btn-primary:hover,
 .btn-primary:focus {

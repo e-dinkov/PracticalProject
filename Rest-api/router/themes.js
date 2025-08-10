@@ -7,6 +7,7 @@ const { themeController, postController, playerController } = require('../contro
 
 router.get('/', playerController.getPlayers);
 router.post('/', auth(), playerController.newPlayer);
+router.put('/:playerId', auth(), playerController.like);
 
 router.get('/:themeId', themeController.getTheme);
 router.post('/:themeId', auth(), postController.createPost);

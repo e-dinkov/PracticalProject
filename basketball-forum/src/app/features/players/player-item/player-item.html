@@ -1,5 +1,4 @@
 <div class="player-card">
-  <!-- Player Image -->
   <div class="player-photo">
     <img [src]="player.photo" [alt]="player.name" />
   </div>
@@ -17,5 +16,27 @@
 
   <div class="player-actions">
     <a [routerLink]="['/players', player._id]" class="btn view-btn">View Details</a>
+@if(!hasLiked()) {
+      <button
+      class="btn like-btn"
+      (click)="toggleLike()"
+      [disabled]="!currentUserId()"
+      type="button"
+    >
+      ❤️ Like
+    </button>
+}
+ @else {
+    <button
+      class="btn liked"
+      type="button"
+      disabled="true"
+      color="black"
+    >
+      ❤️Like
+    </button>
+ }
+
+    <span class="likes-count">{{ likes().length }} Likes</span>
   </div>
 </div>

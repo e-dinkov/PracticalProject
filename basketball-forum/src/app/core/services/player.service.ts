@@ -23,4 +23,16 @@ export class PlayerService {
       )
       .pipe(tap((player) => console.log(player)));
   }
+  likePlayer(playerId: string): Observable<Player> {
+    console
+    return this.httpClient
+      .put<Player>(
+        `${this.apiUrl}/${playerId}`,
+        {},
+        {
+          withCredentials: true,
+        }
+      )
+      .pipe(tap((player) => console.log(player)));
+  }
 }

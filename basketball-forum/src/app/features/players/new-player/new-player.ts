@@ -29,7 +29,7 @@ export class NewPlayer {
       [Validators.required, Validators.pattern(/^\d+(\.\d+)?$/)],
     ],
     playerDescription: ['', [Validators.required, Validators.minLength(10)]],
-    playerPhoto: ['',[Validators.pattern(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g)]],
+    playerPhoto: ['', [Validators.required]],
   });
 
   get f() {

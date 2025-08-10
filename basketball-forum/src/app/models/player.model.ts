@@ -7,4 +7,5 @@ export interface Player {
     description: string;
     userId: string;
     photo: string;
+    likes?: string[];
 }

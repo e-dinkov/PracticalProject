@@ -13,5 +13,12 @@ function newPlayer(req, res, next) {
         .then(player => res.status(200).json(player))
         .catch(next);
 }
+function like(req, res, next) {
+    const { playerId } = req.params;
+    const { _id: userId } = req.user;
+    playerModel.updateOne({ _id: playerId }, { $addToSet: { likes: userId } }, { new: true })
+        .then(() => res.status(200).json({ message: 'Liked successful!' }))
+        .catch(next);
+}
 
-module.exports = { getPlayers, newPlayer };
+module.exports = { getPlayers, newPlayer , like};
