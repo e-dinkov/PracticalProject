@@ -73,25 +73,32 @@ export class AuthService {
   getCurrentUser(): string | null {
     return this._currentUser()?.id || null;
   }
-  updateUser(user: User): Observable<User> {
+  updateUser(user: User): Observable<User> | any {
     const apiUser = <ApiUser>{
       _id: user.id,
       username: user.username,
       email: user.email,
       tel: user.phone,
     };
-    return this.httpClient
-      .put<ApiUser>(`${this.apiUrl}/users/${user.id}`, apiUser, {
-        withCredentials: true,
-      })
+    console.log(apiUser);
+    
+    
+       return this.httpClient
+      .put<ApiUser>(`${this.apiUrl}/users/profile`, apiUser, { withCredentials: true })
       .pipe(
         map((apiUser) => this.mapApiUserToUser(apiUser)),
         tap((user) => {
+          console.log(user);
           this._currentUser.set(user);
           this._isLoggedIn.set(true);
           localStorage.setItem('currentUser', JSON.stringify(user));
+        },
+        (error) => {
+          console.error('Error updating user:', error);
         })
       );
+    
+   
   }
   private mapApiUserToUser(apiUser: ApiUser): User {
     return <User>{
