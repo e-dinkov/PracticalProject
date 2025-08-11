@@ -3,10 +3,11 @@ import { Player } from '../../../models/player.model';
 import { AuthService } from '../../../core/services/auth.service';
 import { PlayerService } from '../../../core/services/player.service';
 import { RouterLink } from '@angular/router';
+import { TimeAgoPipe } from '../../../shared/pipes/time-ago.pipe';
 
 @Component({
   selector: 'app-player-item',
-  imports: [RouterLink],
+  imports: [RouterLink,TimeAgoPipe],
   templateUrl: './player-item.html',
   styleUrl: './player-item.css',
 })

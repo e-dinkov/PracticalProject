@@ -12,6 +12,7 @@
     <p><strong>Height:</strong> {{ player.height }} cm</p>
     <p><strong>Weight:</strong> {{ player.weight }} kg</p>
     <p class="description">{{ player.description }}</p>
+    <span>{{ player.created_at | timeAgo }}</span>
   </div>
 
   <div class="player-actions">
