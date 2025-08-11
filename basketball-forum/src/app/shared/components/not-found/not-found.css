@@ -1,0 +1,46 @@
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  background: linear-gradient(135deg, #2c3e50, #3498db);
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.not-found-code {
+  font-size: 8rem;
+  font-weight: bold;
+  margin: 0;
+  color: #ff4757;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  animation: float 2s infinite ease-in-out;
+}
+
+.not-found-message {
+  font-size: 1.3rem;
+  margin: 10px 0 20px;
+  opacity: 0.9;
+}
+
+.not-found-btn {
+  text-decoration: none;
+  background-color: #ff4757;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.not-found-btn:hover {
+  background-color: #ff6b81;
+  transform: scale(1.05);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
