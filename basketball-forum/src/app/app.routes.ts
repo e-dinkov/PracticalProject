@@ -2,6 +2,7 @@ import { NOT_FOUND } from '@angular/core/primitives/di';
 import { Routes } from '@angular/router';
 import { NotFound } from './shared/components/not-found/not-found';
 import { authGuard } from './core/guards/auth.guard';
+import { PlayerDetails } from './features/players/player-details/player-details';
 
 export const routes: Routes = [
   {
@@ -46,7 +47,15 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'players/:id',component:PlayerDetails
+    // loadComponent: () =>
+    //   import('./features/players/player-details/player-details').then(
+    //     (c) => c.PlayerDetails
+    //   ),
+  },
+  {
     path: '**',
     component: NotFound,
   },
+
 ];

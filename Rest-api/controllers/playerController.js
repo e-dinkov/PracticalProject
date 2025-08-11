@@ -20,5 +20,25 @@ function like(req, res, next) {
         .then(() => res.status(200).json({ message: 'Liked successful!' }))
         .catch(next);
 }
+function getPlayer(req, res, next) {
+    const { playerId } = req.params;
+    playerModel.findById(playerId)
+        .populate('userId')
+        .then(player => res.json(player))
+        .catch(next);
+}
+function deletePlayer(req, res, next) {
+    const { playerId } = req.params;
+    const { _id: userId } = req.user;
+    playerModel.findOneAndDelete({ _id: playerId, userId })
+        .then(deletedOne => {
+            if (deletedOne) {
+                res.status(200).json(deletedOne)
+            } else {
+                res.status(401).json({ message: `Not allowed!` });
+            }
+        })
+        .catch(next);
+}
 
-module.exports = { getPlayers, newPlayer , like};
+module.exports = { getPlayers, newPlayer , like, getPlayer, deletePlayer };

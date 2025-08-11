@@ -12,6 +12,9 @@ export class PlayerService {
   getPlayers(): Observable<Player[]> {
     return this.httpClient.get<Player[]>(this.apiUrl);
   }
+  getPlayer(playerId: string): Observable<Player> {
+    return this.httpClient.get<Player>(`${this.apiUrl}/${playerId}`);
+  }
   createPlayer(name: string, team: string, height: string, weight: string, description: string,photo: string): Observable<Player> {
     return this.httpClient
       .post<Player>(
@@ -29,6 +32,16 @@ export class PlayerService {
       .put<Player>(
         `${this.apiUrl}/${playerId}`,
         {},
+        {
+          withCredentials: true,
+        }
+      )
+      .pipe(tap((player) => console.log(player)));
+  }
+  deletePlayer(playerId: string): Observable<Player> {
+    return this.httpClient
+      .delete<Player>(
+        `${this.apiUrl}/${playerId}`,
         {
           withCredentials: true,
         }

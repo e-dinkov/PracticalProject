@@ -1,0 +1,40 @@
+<section class="player-details">
+  @if (loading) {
+    <p class="loading">Loading player details...</p>
+  } @else if (error) {
+    <p class="error">{{ error }}</p>
+  } @else if (player) {
+    <div class="card">
+      <img class="player-photo" [src]="player.photo" [alt]="player.name" />
+      <div class="info">
+        <h2>{{ player.name }}</h2>
+        <p class="team">Team: <span>{{ player.team }}</span></p>
+        <p>Height: {{ player.height }}</p>
+        <p>Weight: {{ player.weight }}</p>
+        <p class="description">{{ player.description }}</p>
+        <p class="likes">❤️ {{ player.likes?.length || 0 }} likes</p>
+        @if(isLoggedIn()){
+            @if (liked) {
+          <button class="btn-like liked" disabled>
+            Liked
+          </button>
+        } @else {
+          <button class="btn-like" (click)="onLike()">
+            Like
+          </button>
+        }
+        }@if(isOwner){
+          <button class="btn delete" [routerLink]="['/players', player._id, 'delete']">
+            Delete
+          </button>
+          <button class="btn edit" [routerLink]="['/players', player._id, 'edit']"> Edit</button>
+        }
+
+
+      
+
+        <p class="date">Joined: {{ player.created_at | timeAgo }}</p>
+      </div>
+    </div>
+  }
+</section>

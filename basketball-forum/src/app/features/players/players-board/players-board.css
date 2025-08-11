@@ -1,0 +1,195 @@
+/* Players Board Container */
+.players-board {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: 'Roboto', sans-serif;
+  color: #222;
+}
+
+.players-board h2 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #0d47a1;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Grid container for player cards */
+.players-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Empty and loading message styling */
+.empty-message,
+.loading {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+  margin: 4rem 0;
+}
+
+/* Player Card */
+.player-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  min-height: 420px;
+}
+
+.player-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* Player Photo */
+.player-photo {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.player-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.player-card:hover .player-photo img {
+  transform: scale(1.05);
+}
+
+/* Player Header */
+.player-header {
+  padding: 1rem 1.25rem 0.5rem;
+  background-color: #f4f9ff;
+  border-bottom: 1px solid #dbe9ff;
+}
+
+.player-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #1565c0;
+}
+
+.team {
+  font-size: 1rem;
+  color: #1976d2;
+  font-weight: 500;
+}
+
+/* Player Info */
+.player-info {
+  flex-grow: 1;
+  padding: 1rem 1.25rem;
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+.player-info strong {
+  color: #333;
+}
+
+.description {
+  margin-top: 1rem;
+  font-style: italic;
+  color: #666;
+}
+
+.player-info span {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: #999;
+  font-weight: 600;
+}
+
+/* Player Actions */
+.player-actions {
+  padding: 1rem 1.25rem 1.5rem;
+  border-top: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.5rem 1.1rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  flex: 1 1 auto;
+  max-width: 120px;
+}
+
+.view-btn {
+  background-color: #1976d2;
+  color: white;
+}
+
+.view-btn:hover {
+  background-color: #1565c0;
+}
+
+.like-btn {
+  background-color: #e53935;
+  color: white;
+}
+
+.like-btn:hover:not(:disabled) {
+  background-color: #d32f2f;
+}
+
+.liked {
+  background-color: #4caf50;
+  color: white;
+  cursor: default;
+}
+
+.liked:disabled {
+  opacity: 0.8;
+}
+
+/* Likes Count */
+.likes-count {
+  font-weight: 600;
+  color: #e53935;
+  font-size: 0.95rem;
+  min-width: 75px;
+  text-align: right;
+}
+
+/* Responsive adjustments */
+@media (max-width: 700px) {
+  .players-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+  
+  .player-actions {
+    justify-content: center;
+  }
+  
+  .likes-count {
+    text-align: center;
+    min-width: auto;
+    margin-top: 0.5rem;
+  }
+}

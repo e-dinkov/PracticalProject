@@ -5,7 +5,7 @@ export interface Player {
   height: string;
   weight: string;
   description: string;
-  userId: string;
+  userId:  any;
   photo: string;
   likes?: string[];
   created_at: Date;
