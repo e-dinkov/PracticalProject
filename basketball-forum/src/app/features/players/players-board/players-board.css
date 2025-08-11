@@ -5,6 +5,7 @@
   padding: 0 1rem;
   font-family: 'Roboto', sans-serif;
   color: #222;
+  animation: fadeIn 0.6s ease forwards;
 }
 
 .players-board h2 {
@@ -13,6 +14,8 @@
   color: #0d47a1;
   margin-bottom: 1.5rem;
   text-align: center;
+  letter-spacing: 1.2px;
+  animation: slideDown 0.8s ease forwards;
 }
 
 /* Grid container for player cards */
@@ -20,6 +23,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
+  animation: fadeInUp 0.8s ease forwards;
 }
 
 /* Empty and loading message styling */
@@ -29,6 +33,7 @@
   font-size: 1.2rem;
   color: #555;
   margin: 4rem 0;
+  animation: fadeIn 0.8s ease forwards;
 }
 
 /* Player Card */
@@ -39,14 +44,17 @@
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: default;
   min-height: 420px;
+  opacity: 0;
+  animation: fadeInCard 0.5s ease forwards;
+  animation-delay: 0.2s;
 }
 
 .player-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
 }
 
 /* Player Photo */
@@ -54,6 +62,9 @@
   width: 100%;
   height: 180px;
   overflow: hidden;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  background: #eee;
 }
 
 .player-photo img {
@@ -61,11 +72,11 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease;
 }
 
 .player-card:hover .player-photo img {
-  transform: scale(1.05);
+  transform: scale(1.07);
 }
 
 /* Player Header */
@@ -73,18 +84,21 @@
   padding: 1rem 1.25rem 0.5rem;
   background-color: #f4f9ff;
   border-bottom: 1px solid #dbe9ff;
+  user-select: none;
 }
 
 .player-header h2 {
   margin: 0;
   font-size: 1.5rem;
   color: #1565c0;
+  letter-spacing: 0.5px;
 }
 
 .team {
   font-size: 1rem;
   color: #1976d2;
   font-weight: 500;
+  letter-spacing: 0.3px;
 }
 
 /* Player Info */
@@ -93,7 +107,7 @@
   padding: 1rem 1.25rem;
   font-size: 0.95rem;
   color: #444;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .player-info strong {
@@ -112,6 +126,7 @@
   font-size: 0.85rem;
   color: #999;
   font-weight: 600;
+  letter-spacing: 0.1px;
 }
 
 /* Player Actions */
@@ -134,10 +149,11 @@
   text-align: center;
   cursor: pointer;
   border: none;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
   user-select: none;
   flex: 1 1 auto;
   max-width: 120px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
 }
 
 .view-btn {
@@ -147,6 +163,7 @@
 
 .view-btn:hover {
   background-color: #1565c0;
+  box-shadow: 0 4px 12px rgba(21, 101, 192, 0.6);
 }
 
 .like-btn {
@@ -156,12 +173,14 @@
 
 .like-btn:hover:not(:disabled) {
   background-color: #d32f2f;
+  box-shadow: 0 4px 12px rgba(211, 47, 47, 0.6);
 }
 
 .liked {
   background-color: #4caf50;
   color: white;
   cursor: default;
+  box-shadow: 0 2px 6px rgba(76, 175, 80, 0.5);
 }
 
 .liked:disabled {
@@ -175,14 +194,26 @@
   font-size: 0.95rem;
   min-width: 75px;
   text-align: right;
+  user-select: none;
 }
 
 /* Responsive adjustments */
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .players-grid {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   }
+}
+
+@media (max-width: 480px) {
+  .players-board {
+    margin: 1rem auto;
+    padding: 0 0.5rem;
+  }
   
+  .player-card {
+    min-height: auto;
+  }
+
   .player-actions {
     justify-content: center;
   }
@@ -191,5 +222,108 @@
     text-align: center;
     min-width: auto;
     margin-top: 0.5rem;
+  }
+
+  .btn {
+    max-width: 100%;
+    flex-grow: 1;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInCard {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.spinner {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-left: 15%;
+  margin-top: 25%;
+  
+}
+
+.spinner span {
+  position: absolute;
+  top: 50%;
+  left: var(--left);
+  width: 175px;
+  height: 35px;
+  background: #ffff;
+  animation: dominos 1s ease infinite;
+  box-shadow: 2px 2px 3px 0px black;
+}
+
+.spinner span:nth-child(1) {
+  --left: 400px;
+  animation-delay: 0.125s;
+}
+
+.spinner span:nth-child(2) {
+  --left: 350px;
+  animation-delay: 0.3s;
+}
+
+.spinner span:nth-child(3) {
+  left: 300px;
+  animation-delay: 0.425s;
+}
+
+.spinner span:nth-child(4) {
+  animation-delay: 0.54s;
+  left: 250px;
+}
+
+.spinner span:nth-child(5) {
+  animation-delay: 0.665s;
+  left: 200px;
+}
+
+.spinner span:nth-child(6) {
+  animation-delay: 0.79s;
+  left: 150px;
+}
+
+.spinner span:nth-child(7) {
+  animation-delay: 0.915s;
+  left: 100px;
+}
+
+.spinner span:nth-child(8) {
+  left: 150px;
+}
+
+@keyframes dominos {
+  50% {
+    opacity: 0.7;
+  }
+
+  75% {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+
+  80% {
+    opacity: 1;
   }
 }

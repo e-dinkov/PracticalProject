@@ -1,6 +1,15 @@
 <section class="player-details">
   @if (loading) {
-    <p class="loading">Loading player details...</p>
+    <div class="spinner">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
   } @else if (error) {
     <p class="error">{{ error }}</p>
   } @else if (player) {
