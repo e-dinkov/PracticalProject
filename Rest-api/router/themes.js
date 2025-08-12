@@ -9,12 +9,12 @@ router.get('/', playerController.getPlayers);
 router.post('/', auth(), playerController.newPlayer);
 router.put('/:playerId', auth(), playerController.like);
 router.delete('/:playerId', auth(), playerController.deletePlayer);
-
+router.patch('/:playerId', auth(), playerController.editPlayer);
 //!these are useless
 router.get('/:playerId', playerController.getPlayer);
 router.post('/:themeId', auth(), postController.createPost);
 router.put('/:themeId', auth(), themeController.subscribe);
-router.put('/:themeId/posts/:postId', auth(), postController.editPost);
+
 
 
 // router.get('/my-trips/:id/reservations', auth(), themeController.getReservations);

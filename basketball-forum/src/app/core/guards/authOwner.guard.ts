@@ -10,7 +10,7 @@ import { switchMap, map, catchError } from 'rxjs/operators';
 import { PlayerService } from '../services/player.service';
 import { AuthService } from '../services/auth.service';
 
-export const playerOwnerGuard: CanActivateFn = (
+export const authOwner: CanActivateFn = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot
 ): Observable<boolean> => {
@@ -20,6 +20,11 @@ export const playerOwnerGuard: CanActivateFn = (
 
   const playerId = route.paramMap.get('id'); // or 'playerId' depending on your route param name
   const currentUser = authService.currentUser();
+
+  // console.log('current user', currentUser);
+  // console.log('playerId', playerId);
+  
+  
 
   if (!currentUser) {
     // Not logged in, redirect to login
@@ -35,7 +40,9 @@ export const playerOwnerGuard: CanActivateFn = (
 
   return playerService.getPlayer(playerId).pipe(
     map((player) => {
-      if (player.userId === currentUser.id) {
+    //  console.log(player.userId);
+      
+      if (player.userId._id === currentUser.id) {
         return true; // Allow if current user is the owner
       } else {
         router.navigate(['/players']); // Redirect if not owner

@@ -3,6 +3,8 @@ import { Routes } from '@angular/router';
 import { NotFound } from './shared/components/not-found/not-found';
 import { authGuard } from './core/guards/auth.guard';
 import { PlayerDetails } from './features/players/player-details/player-details';
+import { authOwner } from './core/guards/authOwner.guard';
+import { PlayerDelete } from './features/players/player-delete/player-delete';
 
 export const routes: Routes = [
   {
@@ -47,15 +49,28 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'players/:id',component:PlayerDetails
+    path: 'players/:id',
+    component: PlayerDetails,
     // loadComponent: () =>
     //   import('./features/players/player-details/player-details').then(
     //     (c) => c.PlayerDetails
     //   ),
   },
   {
+    path: 'players/:id/delete',
+    canActivate: [authOwner],
+    component: PlayerDelete,
+  },
+  {
+    path: 'players/:id/edit',
+    canActivate: [authOwner],
+    loadComponent: () =>
+      import('./features/players/player-edit/player-edit').then((c)=>c.PlayerEdit
+      
+    )
+  },
+  {
     path: '**',
     component: NotFound,
   },
-
 ];

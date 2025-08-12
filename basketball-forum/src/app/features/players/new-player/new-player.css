@@ -1,65 +1,100 @@
-.form-container {
-  max-width: 500px;
-  margin: 2rem auto;
-  padding: 1.5rem;
+/* Container */
+.edit-player-container {
+  max-width: 450px;
+  margin: 1rem auto;
+  padding: 1rem 1.5rem;
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border: 1px solid #ddd;
 }
 
-h2 {
+/* Heading */
+.edit-player-container h2 {
   text-align: center;
+  font-size: 1.3rem;
+  font-weight: 600;
   margin-bottom: 1rem;
-  font-size: 1.8rem;
+  color: #333;
 }
 
+/* Form group */
 .form-group {
-  margin-bottom: 1rem;
-  display: flex;
-  flex-direction: column;
+  margin-bottom: 0.8rem;
 }
 
+/* Labels */
 label {
-  font-weight: bold;
+  display: block;
+  font-weight: 500;
   margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  color: #555;
 }
 
-input, textarea {
-  padding: 0.5rem;
+/* Inputs */
+input,
+textarea {
+  width: 100%;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.9rem;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s ease;
 }
 
-textarea {
-  min-height: 80px;
-  resize: vertical;
+/* Focus state */
+input:focus,
+textarea:focus {
+  border-color: #4a90e2;
 }
 
-.error {
-  color: red;
-  font-size: 0.85rem;
+/* Invalid field */
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border-color: #e74c3c;
+  background: #fff6f6;
 }
 
-.button-group {
+/* Error messages */
+.error-message {
+  color: #e74c3c;
+  font-size: 0.75rem;
+  margin-top: 0.15rem;
+}
+
+/* Buttons */
+.form-actions {
   display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
+  justify-content: flex-end;
+  gap: 0.5rem;
 }
 
 button {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 500;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
-button[type="submit"] {
-  background: #28a745;
+/* Submit button */
+.btn-primary {
+  background-color: #4a90e2;
   color: white;
 }
 
-button.cancel {
-  background: #ccc;
+.btn-primary:hover {
+  background-color: #3c7cc0;
+}
+
+/* Cancel button */
+.btn-secondary {
+  background-color: #ccc;
+  color: #333;
+}
+
+.btn-secondary:hover {
+  background-color: #b5b5b5;
 }

@@ -1,0 +1,98 @@
+<section class="edit-player-container">
+  <h2>Edit Player</h2>
+
+  <!-- Loading -->
+  @if (loading()) {
+       <div class="spinner">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+  }
+
+  <!-- Error -->
+  @if (errorMessage()) {
+    <p class="error">{{ errorMessage() }}</p>
+  }
+
+  <!-- Form -->
+  @if (!loading() && !errorMessage() && form) {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+      <!-- Name -->
+      <div class="form-group" [class.invalid]="f['name'].invalid && f['name'].touched">
+        <label for="name">Name</label>
+        <input id="name" formControlName="name" type="text" />
+        @if (f['name'].errors?.['required'] && f['name'].touched) {
+          <small>Name is required</small>
+        }
+        @if (f['name'].errors?.['minlength']) {
+          <small>Minimum 3 characters</small>
+        }
+      </div>
+
+      <!-- Team -->
+      <div class="form-group" [class.invalid]="f['team'].invalid && f['team'].touched">
+        <label for="team">Team</label>
+        <input id="team" formControlName="team" type="text" />
+        @if (f['team'].errors?.['required'] && f['team'].touched) {
+          <small>Team is required</small>
+        }
+      </div>
+
+      <!-- Height -->
+      <div class="form-group" [class.invalid]="f['height'].invalid && f['height'].touched">
+        <label for="height">Height (cm)</label>
+        <input id="height" formControlName="height" type="text" />
+        @if (f['height'].errors?.['required'] && f['height'].touched) {
+          <small>Height is required</small>
+        }
+        @if (f['height'].errors?.['pattern']) {
+          <small>Height must be a number</small>
+        }
+      </div>
+
+      <!-- Weight -->
+      <div class="form-group" [class.invalid]="f['weight'].invalid && f['weight'].touched">
+        <label for="weight">Weight (kg)</label>
+        <input id="weight" formControlName="weight" type="text" />
+        @if (f['weight'].errors?.['required'] && f['weight'].touched) {
+          <small>Weight is required</small>
+        }
+        @if (f['weight'].errors?.['pattern']) {
+          <small>Weight must be a number</small>
+        }
+      </div>
+
+      <!-- Description -->
+      <div class="form-group" [class.invalid]="f['description'].invalid && f['description'].touched">
+        <label for="description">Description</label>
+        <textarea id="description" formControlName="description"></textarea>
+        @if (f['description'].errors?.['required'] && f['description'].touched) {
+          <small>Description is required</small>
+        }
+        @if (f['description'].errors?.['minlength']) {
+          <small>Minimum 10 characters</small>
+        }
+      </div>
+
+      <!-- Photo -->
+      <div class="form-group" [class.invalid]="f['photo'].invalid && f['photo'].touched">
+        <label for="photo">Photo URL</label>
+        <input id="photo" formControlName="photo" type="text" />
+        @if (f['photo'].errors?.['required'] && f['photo'].touched) {
+          <small>Photo URL is required</small>
+        }
+        @if (f['photo'].errors?.['pattern']) {
+          <small>Must be a valid URL (http or https)</small>
+        }
+      </div>
+
+      <button type="submit" class="btn save-btn">Save Changes</button>
+    </form>
+  }
+</section>

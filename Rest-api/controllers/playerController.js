@@ -40,5 +40,19 @@ function deletePlayer(req, res, next) {
         })
         .catch(next);
 }
+function editPlayer(req, res, next) {
+    const { playerId,name, team, height, weight, description,photo } = req.body;
+    const { _id: userId } = req.user;
+    playerModel.findOneAndUpdate({ _id: playerId, userId }, { name, team, height, weight, description,photo }, { new: true })
+        .then(updatedPlayer => {
+            if (updatedPlayer) {
+                res.status(200).json(updatedPlayer);
+            }
+            else {
+                res.status(401).json({ message: `Not allowed!` });
+            }
+        })
+        .catch(next);
+}
 
-module.exports = { getPlayers, newPlayer , like, getPlayer, deletePlayer };
+module.exports = { getPlayers, newPlayer , like, getPlayer, deletePlayer,editPlayer };

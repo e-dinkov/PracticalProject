@@ -48,4 +48,15 @@ export class PlayerService {
       )
       .pipe(tap((player) => console.log(player)));
   }
+  editPlayer(playerId: string, name: string, team: string, height: string, weight: string, description: string,photo: string): Observable<Player> {
+    return this.httpClient
+      .patch<Player>(
+        `${this.apiUrl}/${playerId}`,
+        { playerId,name, team, height, weight, description,photo },
+        {
+          withCredentials: true,
+        }
+      )
+      .pipe(tap((player) => console.log(player)));
+  }
 }
