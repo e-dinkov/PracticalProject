@@ -10,7 +10,7 @@ import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-players-board',
-  imports: [RouterLink, CommonModule, PlayerItem],
+  imports: [CommonModule, PlayerItem],
   templateUrl: './players-board.html',
   styleUrl: './players-board.css',
 })

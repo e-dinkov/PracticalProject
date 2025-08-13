@@ -71,12 +71,12 @@ p {
   font-size: 1.25rem;
   font-weight: 600;
   color: white;
-  background-color: aqua;
+  background-color: #1976d2;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   text-decoration: none;
-  box-shadow: 0 5px 15px aqua;
+  box-shadow: 0 5px 15px rgba(21, 101, 192, 0.6);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -85,6 +85,13 @@ p {
 .btn-primary:focus {
   background-color: #e67300;
   box-shadow: 0 8px 20px rgba(230,115,0,0.9);
+  outline: none;
+}
+
+.btn-primary2:hover,
+.btn-primary2:focus {
+  background-color: #1565c0;
+  box-shadow: 0 8px 20px rgba(21, 101, 192, 0.9);
   outline: none;
 }
 
