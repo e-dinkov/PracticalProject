@@ -1,27 +1,27 @@
 <section class="players-board">
   <h2>Players Board</h2>
 
-  @if (players$ | async; as players) {
-    @if (players.length > 0) {
-      <div class="players-grid">
-        @for (player of players; track player._id) {
-          <app-player-item [player]="player"></app-player-item>
-        }
-      </div>
-    } @else {
-      <p class="empty-message">No players available.</p>
-    }
+  @if (paginatedPlayers.length > 0) {
+    <div class="players-grid">
+      @for (player of paginatedPlayers; track player._id) {
+        <app-player-item [player]="player"></app-player-item>
+      }
+    </div>
+
+    <!-- Pagination Controls -->
+    <div class="pagination-controls">
+      <button (click)="prevPage()" [disabled]="currentPage === 1">
+        ⬅ Previous
+      </button>
+      <span>Page {{ currentPage }} of {{ mathCeil(players.length ,itemsPerPage) }}</span>
+      <button
+        (click)="nextPage()"
+        [disabled]="currentPage === mathCeil(players.length, itemsPerPage)"
+      >
+        Next ➡
+      </button>
+    </div>
   } @else {
-        <div class="spinner">
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
+    <p class="empty-message">No players available.</p>
   }
 </section>
-

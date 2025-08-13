@@ -86,7 +86,6 @@ npm i
 ---
 ---
 
-✅ Database should now be ready.
 
 ---
 
@@ -105,6 +104,7 @@ npm i
 
 - **Angular** – Frontend framework
 - **RxJS** – Reactive programming
+- **Pipes** – Better for  templating
 - **Signals** – Angular reactivity for likes
 - **Express.js** – Backend framework
 - **MongoDB** – NoSQL database
@@ -115,7 +115,6 @@ npm i
 
 ## 📷 Screenshots
 
-> _Replace the placeholders below with actual screenshots of your app UI._
 
 ### 🏠 Home Page
 ![Home Page Screenshot](./basketball-forum/public/Screenshot_3.png)

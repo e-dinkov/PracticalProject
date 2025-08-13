@@ -4,10 +4,12 @@ import { AuthService } from '../../../core/services/auth.service';
 import { PlayerService } from '../../../core/services/player.service';
 import { RouterLink } from '@angular/router';
 import { TimeAgoPipe } from '../../../shared/pipes/time-ago.pipe';
+import { SlicePipe } from '@angular/common';
+import { SliceTitlePipe } from '../../../shared/pipes/slice-title.pipe';
 
 @Component({
   selector: 'app-player-item',
-  imports: [RouterLink,TimeAgoPipe],
+  imports: [RouterLink,TimeAgoPipe,SliceTitlePipe],
   templateUrl: './player-item.html',
   styleUrl: './player-item.css',
 })

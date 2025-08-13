@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'sliceTitle',
 })
 export class SliceTitlePipe implements PipeTransform {
-  transform(value: string, maxLength: number = 10): string {
+  transform(value: string, maxLength: number = 50): string {
     if (!value) {
       return '';
     }

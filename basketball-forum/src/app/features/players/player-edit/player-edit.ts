@@ -7,7 +7,7 @@ import { Player } from '../../../models/player.model';
 
 @Component({
   selector: 'app-player-edit',
-  imports: [CommonModule, ReactiveFormsModule, RouterLink],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './player-edit.html',
   styleUrl: './player-edit.css',
 })
@@ -29,7 +29,7 @@ export class PlayerEdit implements OnInit {
       height: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
       weight: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
       description: ['', [Validators.required, Validators.minLength(10)]],
-      photo: ['', [Validators.required, Validators.pattern(/^https?:\/\//)]],
+      photo: ['', [Validators.required,]],
     });
 
     this.route.paramMap.subscribe((params) => {
