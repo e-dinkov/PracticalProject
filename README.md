@@ -1,4 +1,4 @@
-```markdown
+
 A modern Angular application for managing basketball player profiles and scouting them, built with a clean UI, responsive design, and MongoDB backend.  
 Easily **create**, **edit**, **view**, and **like** player profiles.
 
@@ -17,24 +17,46 @@ Make sure you have the following installed:
   ```bash
   npm install -g @angular/cli
   ```
-- **MongoDB & MongoDB Tools** – [Download here](https://www.mongodb.com/try/download/community)
+- **MongoDB &  – [Download here](https://www.mongodb.com/try/download/community)
+and connect to the default host
+- **MongoDB Tools & - [Download here](https://www.mongodb.com/try/download/database-tools)
 
+## 🗄 Database Setup
+
+## ❗ Initial data load(optional)
+ If you want to load the database with initial players u can follow the following instructions:
+ Go to the MongoDB Tools folder (usually something like):
+
+```makefile
+C:\Program Files\MongoDB\Tools\100\bin
+Run the command from there, with the full path to your JSON file:
+
+mongoimport --db forum --collection players --file "C:\Users\HP\Documents\AngularProject\forum\players.json" --jsonArray
+
+❗ ❗ ❗ ❗ 
+ Where C:\Users\HP\Documents\AngularProject\forum\players.json is the path to the players.json file which is in the forum folder of the project
+❗ ❗ ❗ ❗ 
 ---
+```
 
-### 2️⃣ Installation
+
+
+
+
+
+ 2️⃣ Installation
 
 Clone this repository:
-```bash
-git clone https://github.com/your-username/scout.git
-cd scout
-```
+
+https://github.com/e-dinkov/PracticalProject
+
 
 Install dependencies:
 ```bash
 npm install
 ```
 
----
+
 
 ### 3️⃣ Running the Project
 
@@ -55,19 +77,14 @@ Open your browser at **http://localhost:4200**
 npm start
 ```
 This starts the Node.js/Express backend API.
+ 
+ #### ▶️ Istall the backend server dependencies
+```bash
+npm i
+```
 
 ---
-
-## 🗄 Database Setup
-
-1. Install **MongoDB** and **MongoDB Tools**.
-2. Inside the project folder, open the `scout` folder and **copy its path**.
-3. Open your **Mongo Tools** directory in the terminal.
-4. Run the following command, replacing the path with your copied one:
-
-```bash
-mongorestore -d forum C:\Path\To\Your\scout
-```
+---
 
 ✅ Database should now be ready.
 

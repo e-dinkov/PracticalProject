@@ -1,0 +1,38 @@
+ [
+  {
+    "_id": { "$oid": "66b9c2a4f1a2c28b7c3a1111" },
+    "name": "LeBron James",
+    "team": "Los Angeles Lakers",
+    "height": "2.06 m",
+    "weight": "113 kg",
+    "description": "One of the greatest basketball players of all time, known for his versatility and leadership.",
+    "photo": "https://upload.wikimedia.org/wikipedia/commons/7/7a/LeBron_James_%2851959977144%29_%28cropped2%29.jpg",
+    "userId": { },
+    "likes": [],
+    "created_at": { "$date": "2025-08-01T10:00:00Z" }
+  },
+  {
+    "_id": { "$oid": "66b9c2a4f1a2c28b7c3a2222" },
+    "name": "Stephen Curry",
+    "team": "Golden State Warriors",
+    "height": "1.88 m",
+    "weight": "84 kg",
+    "description": "A sharpshooter and revolutionary player, famous for changing the way basketball is played.",
+    "photo": "https://a57.foxsports.com/statics.foxsports.com/www.foxsports.com/content/uploads/2023/12/1280/1280/Steph-Curry_horizontal_12.18.23.jpg.jpg?ve=1&tl=1",
+    "userId": {},
+    "likes": [],
+    "created_at": { "$date": "2025-08-02T12:00:00Z" }
+  },
+  {
+    "_id": { "$oid": "66b9c2a4f1a2c28b7c3a3333" },
+    "name": "Giannis Antetokounmpo",
+    "team": "Milwaukee Bucks",
+    "height": "2.11 m",
+    "weight": "110 kg",
+    "description": "Known as 'The Greek Freak', Giannis dominates the game with his athleticism.",
+    "photo": "https://www.basketballinsiders.org/wp-content/uploads/2025/08/NBA-Insiders-Fairly-Confident-Giannis-Antetokounmpo-Opens-2025-26-Season-With-Bucks-560x518.jpg.webp",
+    "userId": {  },
+    "likes": [],
+    "created_at": { "$date": "2025-08-03T15:30:00Z" }
+  }
+]
